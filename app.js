@@ -1,15 +1,16 @@
-const express=require("express")
-const mongoose=require("mongoose")
+const express = require("express")
+const mongoose = require("mongoose")
 const cors=require("cors")
+const student=require("./models/student")
+
 const app=express()
 app.use(cors())
-  app.get("/",(req,res)=>{
-    res.send("hello")
-    return "hello"
+app.use(express.json())
+  app.post("/add",(req,res)=>{
+    let input = req.body
+    console.log(input)
+    res.send("test")
   })
-app.get("/contact",(req,res)=>{
-    res.send("welcome to my contact page")
-})
- app.listen(8080,()=>{
+app.listen(8080,()=>{
     console.log("server started")
      })
